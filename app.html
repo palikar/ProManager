@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" media="screen" href="css/style.css">
+
+    <title>Minimum Bootstrap HTML Skeleton</title>
+
+    <!--  -->
+
+    <style>
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default bg-primary">
+        <div class="container-fluid">
+            <div class="navbar-form navbar-left"> <img src="res/nav-logo.png" width="32" height="32" alt=""> </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">ProManager</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-center">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="tech.html">Technology</a></li>
+                <li class="active"><a href="app.html">Try it!</a></li>
+            </ul>
+
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="sign.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="log.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+
+            <form class="navbar-form navbar-right">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid" id="app">
+        <div class="row">
+            <div class="col-md-3">
+                <!--               User Info-->
+                <div class="thumbnail">
+                    <img src="res/nav-logo.png" width="64" height="64" class="img-cirlce" alt="...">
+                    <div class="caption">
+                        <h3>Stanislav Arnaudov</h3>
+                        <hr>
+                        <p>
+                            <span style="font-weight: bold;">Desc</span>: Lorem ipsum dolor sit amet, consectetur adipisicing elit<br> <span style="font-weight: bold;">Github:</span> <a href="">link</a> <br>
+                            <span style="font-weight: bold;">Website: </span>
+                            <a href="">Site</a>
+                        </p>
+                        <hr>
+                        <p><a href="#" class="btn btn-primary" role="button">Settings</a>
+                            <a href="#" class="btn btn-primary" role="button">Log out</a></p>
+                    </div>
+                </div>
+
+                <!--                Projects-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Projects</h4>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li v-on:click="selectProject('ArffPar')" class="list-group-item mouse">ArffPar</li>
+                            <li v-on:click="selectProject('Mandelbrot')" class="list-group-item mouse">Mandelbrot</li>
+                            <li v-on:click="selectProject('ProManager')" class="list-group-item mouse">ProManager</li>
+                            <li class="list-group-item"><span class="glyphicon glyphicon-option-vertical"></span></li>
+                        </ul>
+                        <button class="btn btn-primary" v-on:click="currentView = 'all-projects' ">See All</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--            working pane-->
+            <div class="col-md-9">
+                <div class="well">
+                    <component v-bind:is="currentView" v-bind="currentViewProperties" v-on:show-project="selectProject">
+                    </component>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container-fluid">
+        <hr>
+        <footer class="text-center">
+            <p>&copy; Stanislav Arnaudov,...I am the CEO, bitch!</p>
+        </footer>
+    </div>
+
+    <script src="libs/JQuery/jquery-3.2.1.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/VueJS/vue.js"></script>
+
+    <script src="./build/main.bundle.js"></script>
+
+</body>
+
+</html>
